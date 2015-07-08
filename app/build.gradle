@@ -27,4 +27,5 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.0.0'
     compile 'com.alibaba:fastjson:1.2.6'
     compile 'com.facebook.fresco:fresco:0.5.3'
+    compile project(':SlidingLibrary')
 }
