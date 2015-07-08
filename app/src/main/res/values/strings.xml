@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_about">AboutActivity</string>
+
+
+    <!-- 关于我 -->
+    <string name="about_me">关于我</string>
 </resources>

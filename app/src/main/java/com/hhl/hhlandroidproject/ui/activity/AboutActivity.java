@@ -1,23 +1,27 @@
-package com.hhl.hhlandroidproject;
+package com.hhl.hhlandroidproject.ui.activity;
 
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.hhl.hhlandroidproject.ui.base.BaseActivity;
+import com.hhl.hhlandroidproject.R;
+import com.hhl.hhlandroidproject.ui.base.BaseSwipeBackActivity;
 
-public class MainActivity extends BaseActivity {
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
 
+@EActivity(R.layout.activity_about)
+public class AboutActivity extends BaseSwipeBackActivity {
+
+    @AfterViews
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void afterViews() {
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_about, menu);
         return true;
     }
 

@@ -1,7 +1,6 @@
 package com.hhl.hhlandroidproject.ui.base;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivityHelper;
 /**
  * Created by hailonghan on 15/6/11.
  */
-public abstract class BaseSwipeBackActivity extends AppCompatActivity implements SlidingMenu.OnOpenedListener {
+public abstract class BaseSwipeBackActivity extends BaseActivity implements SlidingMenu.OnOpenedListener {
 
     private SlidingActivityHelper mHelper;
     //SlidingMenu
@@ -44,7 +43,7 @@ public abstract class BaseSwipeBackActivity extends AppCompatActivity implements
         //设置手势滑动方向，因为我们要实现微信那种右滑动的效果，这里设置成SlidingMenu.LEFT模式
         mSlidingMenu.setMode(SlidingMenu.LEFT);
         //因为微信是只有边缘滑动，我们设置成TOUCHMODE_MARGIN模式，如果你想要全屏幕滑动，只需要把这个改成TOUCHMODE_FULLSCREEN就OK了
-        mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+        mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         super.onCreate(savedInstanceState);
     }
 
