@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/HHLAndroidProject.iml" filepath="$PROJECT_DIR$/HHLAndroidProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/SlidingLibrary/SlidingLibrary.iml" filepath="$PROJECT_DIR$/SlidingLibrary/SlidingLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hhlcommonlibs/hhlcommonlibs.iml" filepath="$PROJECT_DIR$/hhlcommonlibs/hhlcommonlibs.iml" />
     </modules>
   </component>
 </project>
