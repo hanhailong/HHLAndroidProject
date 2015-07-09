@@ -1,5 +1,7 @@
 package com.hhl.hhlandroidproject.ui.activity;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -11,29 +13,35 @@ import android.widget.ListView;
 import com.hhl.hhlandroidproject.R;
 import com.hhl.hhlandroidproject.ui.base.BaseActivity;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
+import butterknife.Bind;
 
-@EActivity(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
 
-    @ViewById(R.id.drawer_layout)
+    @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
-    @ViewById(R.id.lv_left_menu)
+    @Bind(R.id.lv_left_menu)
     ListView mLeftMenuLv;
-    @ViewById(R.id.id_toolbar)
+    @Bind(R.id.id_toolbar)
     Toolbar mToolbar;
 
-    @AfterViews
     @Override
-    public void afterViews() {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        initViews();
+    }
+
+    public void initViews() {
+
 
         setSupportActionBar(mToolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(android.R.drawable.ic_menu_add);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_action_menu);
         actionBar.setDisplayHomeAsUpEnabled(true);
+
 
         //初始化菜单
         initLeftMenu();
@@ -62,11 +70,11 @@ public class MainActivity extends BaseActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            AboutActivity_.intent(this).start();
+            startActivity(new Intent(this,AboutActivity.class));
             return true;
         }
 
-        if (id == android.R.id.home){
+        if (id == android.R.id.home) {
             mDrawerLayout.openDrawer(GravityCompat.START);
             return true;
         }
