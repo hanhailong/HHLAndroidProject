@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context="com.hhl.hhlandroidproject.ui.activity.ViewDragHelperActivity">
+
+    <include layout="@layout/common_title" />
+
+    <com.hhl.hhlandroidproject.ui.view.HHLViewDragLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_blue_dark"
+            android:gravity="center"
+            android:text="I am a blue" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_red_dark"
+            android:gravity="center"
+            android:text="I am red" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_green_dark"
+            android:gravity="center"
+            android:text="I am green" />
+
+    </com.hhl.hhlandroidproject.ui.view.HHLViewDragLayout>
+
+</LinearLayout>

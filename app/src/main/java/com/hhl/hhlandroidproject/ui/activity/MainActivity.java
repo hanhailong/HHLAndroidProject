@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,14 +43,9 @@ public class MainActivity extends BaseActivity {
     }
 
     public void initViews() {
-
-
         setSupportActionBar(mToolbar);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_action_menu);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
+        mToolbar.setNavigationIcon(R.drawable.ic_action_menu);
 
         //初始化菜单
         initLeftMenu();
@@ -76,6 +70,15 @@ public class MainActivity extends BaseActivity {
         multiTypeItem.setMenuTitle("多个Item");
         itemList.add(multiTypeItem);
 
+        //ViewDragHelper
+        LeftMenuItem viewDragHelperItem = new LeftMenuItem();
+        viewDragHelperItem.setMenuTitle("ViewDragHelper");
+        itemList.add(viewDragHelperItem);
+
+        //sticky
+        LeftMenuItem stikey = new LeftMenuItem();
+        stikey.setMenuTitle("StickyListHeader");
+        itemList.add(stikey);
 
         //添加总得数据
         mMenuAdapter.addAll(itemList);
@@ -106,6 +109,10 @@ public class MainActivity extends BaseActivity {
                         startActivity(new Intent(MainActivity.this,SimpleItemActivity.class));
                     }else if ("多个Item".equals(item.getMenuTitle())){
                         startActivity(new Intent(MainActivity.this,MultiItemActivity.class));
+                    }else if ("ViewDragHelper".equals(item.getMenuTitle())){
+                        startActivity(new Intent(MainActivity.this,ViewDragHelperActivity.class));
+                    }else if ("StickyListHeader".equals(item.getMenuTitle())){
+                        startActivity(new Intent(MainActivity.this,StickyListHeaderActivity2.class));
                     }
                 }
 

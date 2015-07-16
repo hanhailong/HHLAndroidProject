@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hhl.hhlandroidproject" >
+    package="com.hhl.hhlandroidproject">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".ui.activity.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/HHL.Activity.Custom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,8 +26,24 @@
             android:theme="@style/HHL.SwipeBack.Transparent.Theme" />
         <activity
             android:name=".ui.activity.SimpleItemActivity"
-            android:label="@string/title_activity_simple_item" >
-        </activity>
+            android:label="@string/title_activity_simple_item"
+            android:theme="@style/HHL.SwipeBack.Transparent.Theme" />
+        <activity
+            android:name=".ui.activity.ViewDragHelperActivity"
+            android:label="@string/title_activity_view_drag_helper"
+            android:theme="@style/HHL.SwipeBack.Transparent.Theme" />
+        <activity
+            android:name=".ui.activity.SuperRecyleViewActivity"
+            android:label="@string/title_activity_super_recyle_view"
+            android:theme="@style/HHL.SwipeBack.Transparent.Theme" />
+        <activity
+            android:name=".ui.activity.StickyListHeaderActivity"
+            android:label="@string/title_activity_sticky_list_header"
+            android:theme="@style/HHL.SwipeBack.Transparent.Theme"></activity>
+        <activity
+            android:name=".ui.activity.StickyListHeaderActivity2"
+            android:label="@string/title_activity_sticky_list_header"
+            android:theme="@style/HHL.SwipeBack.Transparent.Theme"></activity>
     </application>
 
 </manifest>

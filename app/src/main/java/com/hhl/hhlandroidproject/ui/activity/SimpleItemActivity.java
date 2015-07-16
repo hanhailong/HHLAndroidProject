@@ -80,4 +80,9 @@ public class SimpleItemActivity extends BaseSwipeBackActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected boolean isLeftBackFinish() {
+        return false;
+    }
 }

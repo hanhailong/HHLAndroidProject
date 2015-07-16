@@ -30,13 +30,18 @@ public abstract class BaseSwipeBackActivity extends BaseActivity implements Slid
         setBehindContentView(behindView);
 
         mSlidingMenu = getSlidingMenu();
+        mSlidingMenu.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         //设置阴影宽度为10个px
-        mSlidingMenu.setShadowWidth(10);
+        mSlidingMenu.setShadowWidth(0);
+
+        mSlidingMenu.setFadeDegree(0);
+        mSlidingMenu.setFadeEnabled(false);
+
         //设置阴影
-        mSlidingMenu.setShadowDrawable(R.drawable.slide_shadow);
+//        mSlidingMenu.setShadowDrawable(R.drawable.slide_shadow);
         //设置下面的布局，也就是我们上面定义的透明菜单离右边屏幕边缘的距离为0，也就是滑动开以后菜单会全屏幕显示
         mSlidingMenu.setBehindOffset(0);
-        mSlidingMenu.setFadeDegree(0.35f);
+        mSlidingMenu.setFadeEnabled(false);
         //菜单打开监听，因为菜单打开后我们要finish掉当前的Activity
         mSlidingMenu.setOnOpenedListener(this);
 
@@ -44,6 +49,9 @@ public abstract class BaseSwipeBackActivity extends BaseActivity implements Slid
         mSlidingMenu.setMode(SlidingMenu.LEFT);
         //因为微信是只有边缘滑动，我们设置成TOUCHMODE_MARGIN模式，如果你想要全屏幕滑动，只需要把这个改成TOUCHMODE_FULLSCREEN就OK了
         mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+
+        mSlidingMenu.setSlidingEnabled(isDragEnabled());
+
         super.onCreate(savedInstanceState);
     }
 
@@ -141,5 +149,9 @@ public abstract class BaseSwipeBackActivity extends BaseActivity implements Slid
     public void finish() {
         super.finish();
         this.overridePendingTransition(0, R.anim.slide_out_right);
+    }
+
+    protected boolean isDragEnabled() {
+        return true;
     }
 }

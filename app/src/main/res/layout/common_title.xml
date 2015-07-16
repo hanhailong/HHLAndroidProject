@@ -4,19 +4,17 @@
     android:id="@+id/title_toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
-    android:elevation="8dp"
-    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    android:background="?attr/colorPrimary">
 
-    <TextView
-        android:id="@+id/title_middle"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="标题"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/title_font_size" />
+    <!--<TextView-->
+        <!--android:id="@+id/title_middle"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:gravity="center"-->
+        <!--android:text="标题"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:textSize="@dimen/title_font_size" />-->
 
 
 </android.support.v7.widget.Toolbar>

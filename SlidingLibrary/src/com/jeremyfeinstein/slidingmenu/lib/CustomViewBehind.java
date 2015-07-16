@@ -397,7 +397,7 @@ public class CustomViewBehind extends ViewGroup {
 					right = content.getLeft();
 					left = right - offset;
 					canvas.clipRect(left, 0, right, getHeight());
-					canvas.drawBitmap(mSelectorDrawable, left, getSelectorTop(), null);		
+					canvas.drawBitmap(mSelectorDrawable, left, getSelectorTop(), null);
 				} else if (mMode == SlidingMenu.RIGHT) {
 					left = content.getRight();
 					right = left + offset;

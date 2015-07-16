@@ -1,15 +1,17 @@
 package com.hhl.hhlandroidproject.ui.base;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.hhl.hhlandroidproject.R;
+import com.hhl.hhlandroidproject.util.SystemBarTintManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,14 +26,25 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Bind(R.id.title_toolbar)
     Toolbar mToolbar;
 
-    @Nullable
-    @Bind(R.id.title_middle)
-    TextView mTitleTv;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //TODO
+        setTransparentStatusBar();
+    }
+
+    private void setTransparentStatusBar() {
+        if (isTransparentStatusBar()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                Window win = getWindow();
+                WindowManager.LayoutParams winParams = win.getAttributes();
+                final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+                winParams.flags |= bits;
+                win.setAttributes(winParams);
+            }
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setStatusBarTintColor(getResources().getColor(R.color.app_title_bg_color));
+        }
     }
 
     @Override
@@ -54,41 +67,41 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void initToolbar() {
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);
-            ActionBar actionBar = getSupportActionBar();
-            actionBar.setDisplayShowHomeEnabled(false);
-            actionBar.setDisplayShowTitleEnabled(false);
-            actionBar.setDisplayUseLogoEnabled(false);
-            actionBar.setDisplayShowCustomEnabled(true);
-
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_back);
-
-            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    leftPerformAction();
-                }
-            });
+            if (isLeftBackFinish()) {
+                mToolbar.setNavigationIcon(R.drawable.ic_back);
+                mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        leftPerformAction();
+                    }
+                });
+            }
         }
     }
 
-    @Override
-    public void setTitle(CharSequence title) {
-        super.setTitle(title);
-        if (mTitleTv != null) {
-            mTitleTv.setText(title);
-        }
-    }
-
-    @Override
-    public void setTitle(int titleId) {
-        super.setTitle(titleId);
-        if (mTitleTv != null) {
-            mTitleTv.setText(titleId);
-        }
-    }
-
-    protected void leftPerformAction(){
+    /**
+     * 执行左侧按钮行为
+     */
+    protected void leftPerformAction() {
         finish();
+    }
+
+    /**
+     * 是否支持透明状态栏，默认为true
+     * ，不过不支持，就重写此方法
+     *
+     * @return
+     */
+    protected boolean isTransparentStatusBar() {
+        return true;
+    }
+
+    /**
+     * 是否点击左上角按钮返回
+     *
+     * @return
+     */
+    protected boolean isLeftBackFinish() {
+        return true;
     }
 }
