@@ -39,10 +39,14 @@
         <activity
             android:name=".ui.activity.StickyListHeaderActivity"
             android:label="@string/title_activity_sticky_list_header"
-            android:theme="@style/HHL.SwipeBack.Transparent.Theme"></activity>
+            android:theme="@style/HHL.SwipeBack.Transparent.Theme" />
         <activity
             android:name=".ui.activity.StickyListHeaderActivity2"
             android:label="@string/title_activity_sticky_list_header"
+            android:theme="@style/HHL.SwipeBack.Transparent.Theme" />
+        <activity
+            android:name=".ui.activity.FlipCardActivity"
+            android:label="@string/title_activity_flip_card"
             android:theme="@style/HHL.SwipeBack.Transparent.Theme"></activity>
     </application>
 

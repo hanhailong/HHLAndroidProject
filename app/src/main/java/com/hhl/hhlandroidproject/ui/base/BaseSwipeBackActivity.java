@@ -1,6 +1,7 @@
 package com.hhl.hhlandroidproject.ui.base;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,14 @@ public abstract class BaseSwipeBackActivity extends BaseActivity implements Slid
         mSlidingMenu.setFadeEnabled(false);
         //菜单打开监听，因为菜单打开后我们要finish掉当前的Activity
         mSlidingMenu.setOnOpenedListener(this);
+
+        mSlidingMenu.setOnOpenListener(new SlidingMenu.OnOpenListener() {
+            @Override
+            public void onOpen() {
+                //
+                Log.e("打开菜单","菜单打开了");
+            }
+        });
 
         //设置手势滑动方向，因为我们要实现微信那种右滑动的效果，这里设置成SlidingMenu.LEFT模式
         mSlidingMenu.setMode(SlidingMenu.LEFT);
@@ -93,6 +102,7 @@ public abstract class BaseSwipeBackActivity extends BaseActivity implements Slid
     @Override
     public void setContentView(View v, ViewGroup.LayoutParams params) {
         super.setContentView(v, params);
+        v.setBackgroundColor(getResources().getColor(android.R.color.white));
         mHelper.registerAboveContentView(v, params);
     }
 

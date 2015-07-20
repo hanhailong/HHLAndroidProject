@@ -12,4 +12,5 @@
     <string name="title_activity_view_drag_helper">ViewDragHelperActivity</string>
     <string name="title_activity_super_recyle_view">SuperRecyleViewActivity</string>
     <string name="title_activity_sticky_list_header">StickyListHeaderActivity</string>
+    <string name="title_activity_flip_card">FlipCardActivity</string>
 </resources>

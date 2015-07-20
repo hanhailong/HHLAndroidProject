@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hhl.hhlandroidproject.ui.activity.FlipCardActivity">
+
+    <include layout="@layout/common_title" />
+
+    <com.hhl.hhlandroidproject.ui.view.FlipCardView
+        android:id="@+id/flip_cardview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/circle_shape" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:onClick="flipView"
+        android:text="翻转" />
+
+</LinearLayout>
