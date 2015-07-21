@@ -17,3 +17,5 @@
 ##TODO 下一步： 封装网络请求，结合volley和okhttp进行封装
 
 参考链接地址 [volley、okhttp](https://medium.com/@sotti/android-networking-i-okhttp-volley-and-gson-72004efff196)
+参考demo [demo](https://github.com/Sottti/OkHttpVolleyGsonSample)
+
