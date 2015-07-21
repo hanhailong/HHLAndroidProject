@@ -84,6 +84,10 @@ public class MainActivity extends BaseActivity {
         flipCardItem.setMenuTitle("翻转卡片");
         itemList.add(flipCardItem);
 
+        LeftMenuItem pullUpItem = new LeftMenuItem();
+        pullUpItem.setMenuTitle("上拉加载更多");
+        itemList.add(pullUpItem);
+
         //添加总得数据
         mMenuAdapter.addAll(itemList);
     }
@@ -119,6 +123,8 @@ public class MainActivity extends BaseActivity {
                         startActivity(new Intent(MainActivity.this,StickyListHeaderActivity2.class));
                     }else if ("翻转卡片".equals(item.getMenuTitle())){
                         startActivity(new Intent(MainActivity.this,FlipCardActivity.class));
+                    }else if ("上拉加载更多".equals(item.getMenuTitle())){
+                        startActivity(new Intent(MainActivity.this,PullUpActivity.class));
                     }
                 }
 

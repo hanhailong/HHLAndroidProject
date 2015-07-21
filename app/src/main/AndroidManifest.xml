@@ -47,6 +47,10 @@
         <activity
             android:name=".ui.activity.FlipCardActivity"
             android:label="@string/title_activity_flip_card"
+            android:theme="@style/HHL.SwipeBack.Transparent.Theme" />
+        <activity
+            android:name=".ui.activity.PullUpActivity"
+            android:label="@string/title_activity_pull_up"
             android:theme="@style/HHL.SwipeBack.Transparent.Theme"></activity>
     </application>
 

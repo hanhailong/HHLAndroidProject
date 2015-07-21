@@ -13,4 +13,12 @@
     <string name="title_activity_super_recyle_view">SuperRecyleViewActivity</string>
     <string name="title_activity_sticky_list_header">StickyListHeaderActivity</string>
     <string name="title_activity_flip_card">FlipCardActivity</string>
+    <string name="title_activity_pull_up">PullUpActivity</string>
+
+    <integer-array name="google_colors">
+        <item>@color/red</item>
+        <item>@color/blue</item>
+        <item>@color/yellow</item>
+        <item>@color/green</item>
+    </integer-array>
 </resources>

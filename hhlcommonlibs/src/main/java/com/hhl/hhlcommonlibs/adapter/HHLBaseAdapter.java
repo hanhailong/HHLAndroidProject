@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
-import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,7 +111,7 @@ public abstract class HHLBaseAdapter<T, H extends HHLBaseAdapterHelper> extends 
         if (convertView == null) {
             FrameLayout container = new FrameLayout(mContext);
             container.setForegroundGravity(Gravity.CENTER);
-            ProgressBar progressBar = new ProgressBar(mContext);
+            LoadingProgressBar progressBar = new LoadingProgressBar(mContext);
             container.addView(progressBar);
             convertView = container;
         }
