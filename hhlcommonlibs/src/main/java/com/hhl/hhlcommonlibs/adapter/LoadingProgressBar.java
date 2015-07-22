@@ -65,7 +65,6 @@ public class LoadingProgressBar extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(widthMeasureSpec,50);
         mCenterX1 = getWidth() / 2;
         mCenterX2 = getWidth() / 2;
     }

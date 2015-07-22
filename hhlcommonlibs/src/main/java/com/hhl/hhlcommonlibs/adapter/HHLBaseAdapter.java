@@ -48,7 +48,7 @@ public abstract class HHLBaseAdapter<T, H extends HHLBaseAdapterHelper> extends 
 
     //这里为了添加支持多个layout布局，不能传layoutId了
     protected HHLBaseAdapter(Context context, MultiItemTypeSupport<T> multiItemTypeSupport) {
-        this(context,null,multiItemTypeSupport);
+        this(context, null, multiItemTypeSupport);
     }
 
     protected HHLBaseAdapter(Context context, List<T> data, MultiItemTypeSupport<T> multiItemTypeSupport) {
@@ -111,70 +111,64 @@ public abstract class HHLBaseAdapter<T, H extends HHLBaseAdapterHelper> extends 
         if (convertView == null) {
             FrameLayout container = new FrameLayout(mContext);
             container.setForegroundGravity(Gravity.CENTER);
-            LoadingProgressBar progressBar = new LoadingProgressBar(mContext);
-            container.addView(progressBar);
+            CircleProgressBar progressBar = new CircleProgressBar(mContext);
+            container.addView(progressBar, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100));
             convertView = container;
         }
         return convertView;
     }
 
-    /**************添加一些公共的方法*******************/
-    public void add(T elem)
-    {
+    /**************
+     * 添加一些公共的方法
+     *******************/
+    public void add(T elem) {
         mData.add(elem);
         notifyDataSetChanged();
     }
 
-    public void addAll(List<T> elem)
-    {
+    public void addAll(List<T> elem) {
         mData.addAll(elem);
         notifyDataSetChanged();
     }
 
-    public void set(T oldElem, T newElem)
-    {
+    public void set(T oldElem, T newElem) {
         set(mData.indexOf(oldElem), newElem);
     }
 
-    public void set(int index, T elem)
-    {
+    public void set(int index, T elem) {
         mData.set(index, elem);
         notifyDataSetChanged();
     }
 
-    public void remove(T elem)
-    {
+    public void remove(T elem) {
         mData.remove(elem);
         notifyDataSetChanged();
     }
 
-    public void remove(int index)
-    {
+    public void remove(int index) {
         mData.remove(index);
         notifyDataSetChanged();
     }
 
-    public void replaceAll(List<T> elem)
-    {
+    public void replaceAll(List<T> elem) {
         mData.clear();
         mData.addAll(elem);
         notifyDataSetChanged();
     }
 
-    public boolean contains(T elem)
-    {
+    public boolean contains(T elem) {
         return mData.contains(elem);
     }
 
-    /** Clear data list */
-    public void clear()
-    {
+    /**
+     * Clear data list
+     */
+    public void clear() {
         mData.clear();
         notifyDataSetChanged();
     }
 
-    public void showIndeterminateProgress(boolean display)
-    {
+    public void showIndeterminateProgress(boolean display) {
         if (display == mShowBottomProgressBar)
             return;
         mShowBottomProgressBar = display;
