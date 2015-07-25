@@ -10,10 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.hhl.hhlandroidproject.R;
 import com.hhl.hhlandroidproject.entity.LeftMenuItem;
 import com.hhl.hhlandroidproject.ui.base.BaseActivity;
+import com.hhl.hhlandroidproject.ui.view.BallCycleDrawable;
 import com.hhl.hhlcommonlibs.adapter.HHLBaseAdapterHelper;
 import com.hhl.hhlcommonlibs.adapter.HHLQuickAdapter;
 
@@ -30,6 +32,8 @@ public class MainActivity extends BaseActivity {
     ListView mLeftMenuLv;
     @Bind(R.id.id_toolbar)
     Toolbar mToolbar;
+    @Bind(R.id.progressBar)
+    ProgressBar mProgressBar;
 
     private HHLQuickAdapter<LeftMenuItem> mMenuAdapter;
 
@@ -40,6 +44,12 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         initViews();
+
+        initProgressBar();
+    }
+
+    private void initProgressBar() {
+        mProgressBar.setIndeterminateDrawable(new BallCycleDrawable.Builder(this).build());
     }
 
     public void initViews() {

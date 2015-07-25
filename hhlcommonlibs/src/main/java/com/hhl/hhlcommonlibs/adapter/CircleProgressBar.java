@@ -23,7 +23,7 @@ public class CircleProgressBar extends View {
 
     private final static int DEFAULT_MAX_RADIUS = 15;
     private final static int DEFAULT_MIN_RADIUS = 5;
-    private final static int DEFAULT_DISTANCE = 30;
+    private final static int DEFAULT_DISTANCE = 20;
 
     private final static int DEFAULT_ONE_BALL_COLOR = Color.GREEN;
     private final static int DEFAULT_TWO_BALL_COLOR = Color.BLUE;
@@ -111,11 +111,14 @@ public class CircleProgressBar extends View {
     }
 
     private void configAnimator() {
-        ObjectAnimator redScaleAnimator = ObjectAnimator.ofFloat(mOneBall, "radius", maxRadius,
-                (maxRadius - minRadius) / 2, minRadius, (maxRadius - minRadius) / 2, maxRadius);
+
+        float centerRadius = (maxRadius + minRadius) * 0.5f;
+
+        ObjectAnimator redScaleAnimator = ObjectAnimator.ofFloat(mOneBall, "radius",
+                centerRadius, maxRadius, centerRadius, minRadius, centerRadius);
         redScaleAnimator.setRepeatCount(ValueAnimator.INFINITE);
 
-        ValueAnimator redCenterAnimator = ValueAnimator.ofFloat(0, 1, 0, -1, 0);
+        ValueAnimator redCenterAnimator = ValueAnimator.ofFloat(-1, 0, 1, 0, -1);
         redCenterAnimator.setRepeatCount(ValueAnimator.INFINITE);
         redCenterAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -127,11 +130,11 @@ public class CircleProgressBar extends View {
             }
         });
 
-        ObjectAnimator yellowScaleAnimator = ObjectAnimator.ofFloat(mTwoBall, "radius", minRadius,
-                (maxRadius - minRadius) / 2, maxRadius, (maxRadius - minRadius) / 2, minRadius);
+        ObjectAnimator yellowScaleAnimator = ObjectAnimator.ofFloat(mTwoBall, "radius", centerRadius, minRadius,
+                centerRadius, maxRadius, centerRadius);
         yellowScaleAnimator.setRepeatCount(ValueAnimator.INFINITE);
 
-        ValueAnimator yellowCenterAnimator = ValueAnimator.ofFloat(0, -1, 0, 1, 0);
+        ValueAnimator yellowCenterAnimator = ValueAnimator.ofFloat(1, 0, -1, 0, 1);
         yellowCenterAnimator.setRepeatCount(ValueAnimator.INFINITE);
         yellowCenterAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
